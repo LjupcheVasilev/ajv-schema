@@ -1,21 +1,22 @@
-export const authSchema = {
+export const schema = {
   type: "object",
   properties: {
-    username: {
-      type: "string",
-      description: "Username of the user",
-    },
     email: {
       type: "string",
-      description: "Email of the user",
+      format: "email",
     },
-    password: {
+    subject: {
       type: "string",
-      description: "Password of the user",
-      minLength: 8,
-      maxLength: 24,
+      enum: ["math", "english", "science"],
     },
+    curriculum: {
+      type: "string",
+      enum: ["2024", "2023", "2022"],
+    }
   },
-  required: ["username", "email", "password"],
+  required: ["email"],
+  dependentRequired: {
+    subject: ["curriculum"],
+  },
   additionalProperties: false,
 };

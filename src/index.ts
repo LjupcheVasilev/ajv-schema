@@ -3,9 +3,9 @@ import Router from "@koa/router";
 import koaBody from "koa-body";
 
 import { validatorFactory } from "./validator";
-import { authSchema } from "./schema";
+import { schema } from "./schema";
 
-const authValidation = validatorFactory(authSchema);
+const validation = validatorFactory(schema);
 
 const app = new Koa();
 const router = new Router();
@@ -15,7 +15,7 @@ app.use(koaBody());
 router.post("/", async (ctx) => {
     const body = ctx.request.body;
 
-    const data = authValidation.verify(body);
+    const data = validation.verify(body);
     ctx.body = { data };
 });
 
