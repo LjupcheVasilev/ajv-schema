@@ -1,0 +1,24 @@
+{
+  "name": "ajv-schema",
+  "version": "1.0.0",
+  "description": "AJV Schema example for a YouTube video",
+  "main": "index.js",
+  "repository": "https://github.com/LjupcheVasilev/ajv-schema.git",
+  "scripts": {
+    "compile": "esbuild ./src/index.ts --bundle --outdir=dist --platform=node",
+    "start": "yarn compile && node ./dist/index.js"
+  },
+  "author": "Ljupche Vasilev",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/router": "^12.0.1",
+    "ajv": "^8.12.0",
+    "koa": "^2.15.0",
+    "koa-body": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "esbuild": "^0.19.9",
+    "typescript": "^5.3.3"
+  }
+}
